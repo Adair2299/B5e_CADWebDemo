@@ -1,0 +1,645 @@
+{
+  "CREATE_LINE": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "CREATE_LINE"
+      },
+      "x1": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "y1": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "x2": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "y2": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "x1",
+      "y1",
+      "x2",
+      "y2"
+    ],
+    "additionalProperties": false
+  },
+  "CREATE_RECTANGLE": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "CREATE_RECTANGLE"
+      },
+      "x": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "y": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "width": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1000000
+      },
+      "height": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "x",
+      "y",
+      "width",
+      "height"
+    ],
+    "additionalProperties": false
+  },
+  "CREATE_CIRCLE": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "CREATE_CIRCLE"
+      },
+      "x": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "y": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "radius": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "x",
+      "y",
+      "radius"
+    ],
+    "additionalProperties": false
+  },
+  "CREATE_POINT": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "CREATE_POINT"
+      },
+      "x": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "y": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "x",
+      "y"
+    ],
+    "additionalProperties": false
+  },
+  "SET_LENGTH": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "SET_LENGTH"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      },
+      "value": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "id",
+      "value"
+    ],
+    "additionalProperties": false
+  },
+  "MOVE_OBJECT": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "MOVE_OBJECT"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      },
+      "dx": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "dy": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "id",
+      "dx",
+      "dy"
+    ],
+    "additionalProperties": false
+  },
+  "ROTATE_OBJECT": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "ROTATE_OBJECT"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      },
+      "angle": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "id",
+      "angle"
+    ],
+    "additionalProperties": false
+  },
+  "SET_COLOR": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "SET_COLOR"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      },
+      "color": {
+        "type": "string",
+        "enum": [
+          "black",
+          "white",
+          "red",
+          "green",
+          "blue",
+          "yellow",
+          "cyan",
+          "magenta"
+        ]
+      }
+    },
+    "required": [
+      "command",
+      "id",
+      "color"
+    ],
+    "additionalProperties": false
+  },
+  "SET_WIDTH": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "SET_WIDTH"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      },
+      "value": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "id",
+      "value"
+    ],
+    "additionalProperties": false
+  },
+  "DELETE_OBJECT": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "DELETE_OBJECT"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      }
+    },
+    "required": [
+      "command",
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "COUNT_OBJECTS": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "COUNT_OBJECTS"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "line",
+          "rectangle",
+          "circle",
+          "point",
+          "all"
+        ]
+      }
+    },
+    "required": [
+      "command",
+      "type"
+    ],
+    "additionalProperties": false
+  },
+  "COUNT_IF": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "COUNT_IF"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "line",
+          "rectangle",
+          "circle",
+          "point",
+          "all"
+        ]
+      },
+      "property": {
+        "type": "string",
+        "enum": [
+          "length",
+          "radius",
+          "width",
+          "color",
+          "x",
+          "y"
+        ]
+      },
+      "operator": {
+        "type": "string",
+        "enum": [
+          "eq",
+          "ne",
+          "lt",
+          "le",
+          "gt",
+          "ge"
+        ]
+      },
+      "value": {
+        "type": [
+          "number",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "command",
+      "type",
+      "property",
+      "operator",
+      "value"
+    ],
+    "additionalProperties": false,
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "property": {
+              "const": "color"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "operator": {
+              "type": "string",
+              "enum": [
+                "eq",
+                "ne"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "black",
+                "white",
+                "red",
+                "green",
+                "blue",
+                "yellow",
+                "cyan",
+                "magenta"
+              ]
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": -1000000,
+              "maximum": 1000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "FIND_OBJECTS": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "FIND_OBJECTS"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "line",
+          "rectangle",
+          "circle",
+          "point",
+          "all"
+        ]
+      },
+      "property": {
+        "type": "string",
+        "enum": [
+          "length",
+          "radius",
+          "width",
+          "color",
+          "x",
+          "y"
+        ]
+      },
+      "operator": {
+        "type": "string",
+        "enum": [
+          "eq",
+          "ne",
+          "lt",
+          "le",
+          "gt",
+          "ge"
+        ]
+      },
+      "value": {
+        "type": [
+          "number",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "command",
+      "type",
+      "property",
+      "operator",
+      "value"
+    ],
+    "additionalProperties": false,
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "property": {
+              "const": "color"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "operator": {
+              "type": "string",
+              "enum": [
+                "eq",
+                "ne"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "black",
+                "white",
+                "red",
+                "green",
+                "blue",
+                "yellow",
+                "cyan",
+                "magenta"
+              ]
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": -1000000,
+              "maximum": 1000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "GET_LENGTH": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "GET_LENGTH"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      }
+    },
+    "required": [
+      "command",
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "GET_POSITION": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "GET_POSITION"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      }
+    },
+    "required": [
+      "command",
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "GET_PROPERTIES": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "GET_PROPERTIES"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      }
+    },
+    "required": [
+      "command",
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "SELECT_OBJECT": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "SELECT_OBJECT"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      }
+    },
+    "required": [
+      "command",
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "DUPLICATE_OBJECT": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "DUPLICATE_OBJECT"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 2147483647
+      },
+      "dx": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      },
+      "dy": {
+        "type": "number",
+        "minimum": -1000000,
+        "maximum": 1000000
+      }
+    },
+    "required": [
+      "command",
+      "id",
+      "dx",
+      "dy"
+    ],
+    "additionalProperties": false
+  },
+  "CLEAR_CANVAS": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "CLEAR_CANVAS"
+      }
+    },
+    "required": [
+      "command"
+    ],
+    "additionalProperties": false
+  },
+  "UNDO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "command": {
+        "const": "UNDO"
+      }
+    },
+    "required": [
+      "command"
+    ],
+    "additionalProperties": false
+  }
+}

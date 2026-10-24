@@ -1,0 +1,29 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Training outputs and datasets
+dataset_*.csv
+cad_splits.json
+evaluation*.json
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

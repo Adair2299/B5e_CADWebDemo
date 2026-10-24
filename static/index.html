@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformer CAD Controller</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Transformer CAD Controller</h1>
+        <p>Natural Language to 2D CAD | Built with PyTorch</p>
+    </header>
+
+    <div class="workspace">
+        <section class="control-panel">
+            <h2>CAD Assistant</h2>
+
+            <form id="command-form">
+                <label for="command-input">Natural Language Command</label>
+                <textarea id="command-input"
+                    placeholder="Draw a line from (0,0) to (6,0)."
+                    rows="3"></textarea>
+                <button type="submit" id="predict-btn">
+                    Generate Command
+                </button>
+            </form>
+
+            <h3>Predicted JSON Command</h3>
+            <textarea id="prediction-output" rows="8" spellcheck="false">No prediction yet.</textarea>
+
+            <button id="execute-btn" disabled>
+                Confirm & Execute
+            </button>
+
+            <h3>Execution Result</h3>
+            <div id="execution-result">No command executed.</div>
+
+            <h3>Command History</h3>
+            <div id="history"></div>
+
+            <div class="actions">
+                <button id="undo-btn" type="button">Undo</button>
+                <button id="reset-btn" type="button">Reset Canvas</button>
+            </div>
+        </section>
+
+        <section class="canvas-panel">
+            <div class="canvas-header">
+                <h2>Interactive 2D Canvas</h2>
+                <span id="object-count">0 Objects</span>
+            </div>
+            <canvas id="cad-canvas" width="800" height="600"></canvas>
+            <p class="canvas-note">
+                Shapes are rendered from the Python CAD Executor state.
+            </p>
+        </section>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

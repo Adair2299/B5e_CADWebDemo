@@ -1,0 +1,174 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f5f9;
+    color: #243044;
+}
+
+header {
+    padding: 22px 32px;
+    background: #18263c;
+    color: white;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 25px;
+}
+
+header p {
+    margin: 0;
+    color: #b8c6d9;
+    font-size: 14px;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 390px minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.control-panel,
+.canvas-panel {
+    background: white;
+    padding: 22px;
+    border: 1px solid #e1e6ee;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+
+h3 {
+    margin: 24px 0 10px;
+    font-size: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    resize: vertical;
+    font: inherit;
+    line-height: 1.5;
+}
+
+button {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+#predict-btn {
+    width: 100%;
+    margin-top: 12px;
+}
+
+#execute-btn {
+    width: 100%;
+    background: #15803d;
+}
+
+#execute-btn:hover:not(:disabled) {
+    background: #166534;
+}
+
+#prediction-output {
+    padding: 14px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+#execution-result {
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+#history {
+    max-height: 160px;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.actions button {
+    flex: 1;
+    background: #475569;
+}
+
+.canvas-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#object-count {
+    font-size: 13px;
+    color: #64748b;
+}
+
+#cad-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+.canvas-note {
+    color: #64748b;
+    font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+}
