@@ -253,3 +253,9 @@ document.getElementById("reset-btn").addEventListener("click", async () => {
 refreshState().catch(error => {
     executionResult.textContent = `Connection error: ${error.message}`;
 });
+
+
+document.getElementById("export-dxf-btn").addEventListener("click", () => {
+    window.location.href = "/export/dxf";
+});
+
